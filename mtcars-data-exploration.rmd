@@ -1,0 +1,41 @@
+---
+title: "Análisis Exploratorio de Datos: mtcars"
+output:
+  html_document:
+---
+
+# Introducción
+
+En este documento, realizaremos un análisis exploratorio del conjunto de datos `mtcars`. El objetivo es explorar las relaciones entre variables clave y presentar los resultados en tablas y gráficos. Este análisis es un ejemplo práctico de visualización de datos en R Markdown.
+
+# Carga del conjunto de datos
+data(mtcars)
+head(mtcars)
+
+library(knitr)
+kable(head(mtcars), caption = "Tabla de muestra del conjunto de datos mtcars")
+
+library(DT)
+datatable(mtcars, options = list(pageLength = 5), caption = "Tabla interactiva de mtcars")
+
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(color = "blue", size = 3) +
+  labs(title = "Relación entre peso y consumo de combustible",
+       x = "Peso del vehículo (1000 lbs)",
+       y = "Consumo (mpg)") +
+  theme_minimal()
+
+
+### Explicación:
+
+3. **Tablas**:
+   - Una tabla estática con `kable`.
+   - Una tabla interactiva con `DT`.
+
+4. **Gráfico**:
+   - Un gráfico de dispersión generado con `ggplot2`.
+
+5. **Personalización**:
+   - Se aplica el tema `minimal` al gráfico.
+
